@@ -6,16 +6,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.binarapps.android.cookielogger.CLog;
-import com.binarapps.android.example.contracts.MainContract;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CLog.initialize(getApplicationContext());
+        CLog.initialize(getApplicationContext(), new SendReportApi());
 
         initializeComponents();
     }
@@ -42,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View v) {
                 CLog.printSingleReport();
+                CLog.sendSingleReport();
+                CLog.sendGlobalReport();
             }
         });
     }

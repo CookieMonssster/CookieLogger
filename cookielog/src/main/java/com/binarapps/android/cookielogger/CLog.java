@@ -3,6 +3,9 @@ package com.binarapps.android.cookielogger;
 import android.content.Context;
 import android.util.Log;
 
+import com.binarapps.android.cookielogger.interfaces.CLogInterface;
+
+
 /**
  * Created by Cookie on 24.08.2017.
  */
@@ -11,25 +14,27 @@ public class CLog {
 
     public static final String TAG = "CLog";
 
-    public static void initialize(Context context) {
-        AppContext.initialize(context.getApplicationContext());
+    public static void initialize(Context context, CLogInterface send) {
+        AppContext.initialize(context.getApplicationContext(), send);
     }
 
     public static void d(String report) {
         Log.d(TAG, report);
-        try {
-            ReportStorageManager.updateReport(AppContext.getInstance(), report);
-        } catch (NullPointerException e) {
-            Log.e(TAG, "Initialize CLog first", e);
-        }
+        ReportStorageManager.updateReport(AppContext.getInstance().context, report);
     }
 
     public static void printSingleReport() {
-        try {
-            ReportStorageManager.printSingleReport(AppContext.getInstance());
-        } catch (NullPointerException e) {
-            Log.e(TAG, "Initialize CLog first", e);
-        }
+        ReportStorageManager.printSingleReport(AppContext.getInstance().context);
+    }
+
+    public static void sendSingleReport() {
+        String report = ReportStorageManager.getSingleReport(AppContext.getInstance().context);
+        AppContext.getInstance().send.sendSingleReport(report);
+    }
+
+    public static void sendGlobalReport() {
+        String report = ReportStorageManager.getGlobalReport(AppContext.getInstance().context);
+        AppContext.getInstance().send.sendGlobalReport(report);
     }
 
 }
