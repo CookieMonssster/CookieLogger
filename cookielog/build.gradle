@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'groovyx.android'
 
 android {
     compileSdkVersion 25
@@ -27,5 +28,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'org.codehaus.groovy:groovy:2.4.3:grooid'
+    testCompile 'org.robospock:robospock:0.8.0'
+    testCompile 'org.robolectric:shadows-support-v4:3.0'
     testCompile 'junit:junit:4.12'
 }

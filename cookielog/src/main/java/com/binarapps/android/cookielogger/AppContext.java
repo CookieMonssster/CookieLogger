@@ -8,25 +8,45 @@ import com.binarapps.android.cookielogger.interfaces.CLogInterface;
  * Created by Cookie on 25.08.2017.
  */
 
-class AppContext {
+public class AppContext {
 
     protected Context context;
     protected CLogInterface send;
-    private static AppContext appContext = null;
+    protected String tag;
+    protected boolean logToLogcat;
+
+    private static AppContext instance = null;
 
     private AppContext(Context context, CLogInterface send) {
         this.context = context;
         this.send = send;
+        this.tag = CLog.TAG;
+        this.logToLogcat = false;
     }
 
-    public static void initialize(Context context, CLogInterface send) {
-        appContext = new AppContext(context, send);
+    private AppContext(Context context, CLogInterface send, boolean logToLogcat) {
+        this.context = context;
+        this.send = send;
+        this.logToLogcat = logToLogcat;
+        this.tag = CLog.TAG;
     }
 
-    protected static AppContext getInstance() throws NullPointerException {
-        if(appContext == null) {
-            throw new NullPointerException("CLog wasn't initialized");
+    private AppContext(Context context, CLogInterface send, String tag) {
+        this.context = context;
+        this.send = send;
+        this.tag = tag;
+        this.logToLogcat = true;
+    }
+
+    protected static void initialize(Context context, CLogInterface send, boolean logToLogcat, String tag) {
+        instance = new AppContext(context, send);
+    }
+
+    protected static AppContext getInstance() {
+        if(instance == null) {
+            throw new NullPointerException("You need to initialize CLog first");
         }
-        return appContext;
+        return instance;
     }
+
 }

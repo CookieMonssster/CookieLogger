@@ -15,11 +15,23 @@ public class CLog {
     public static final String TAG = "CLog";
 
     public static void initialize(Context context, CLogInterface send) {
-        AppContext.initialize(context.getApplicationContext(), send);
+        AppContext.initialize(context, send, false, TAG);
+    }
+
+    public static void initialize(Context context, CLogInterface send, boolean logToLogcat) {
+        AppContext.initialize(context, send, logToLogcat, TAG);
+    }
+
+    public static void initialize(Context context, CLogInterface send, String tag) {
+        AppContext.initialize(context, send, true, tag);
     }
 
     public static void d(String report) {
-        Log.d(TAG, report);
+        d(report, AppContext.getInstance().logToLogcat);
+    }
+
+    public static void d(String report, boolean logToLogcat) {
+        if(logToLogcat) Log.d(TAG, report);
         ReportStorageManager.updateReport(AppContext.getInstance().context, report);
     }
 
@@ -36,5 +48,4 @@ public class CLog {
         String report = ReportStorageManager.getGlobalReport(AppContext.getInstance().context);
         AppContext.getInstance().send.sendGlobalReport(report);
     }
-
 }
