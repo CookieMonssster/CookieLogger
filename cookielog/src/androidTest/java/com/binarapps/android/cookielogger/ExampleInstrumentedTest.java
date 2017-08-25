@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.binarapps.android.cookielogger", appContext.getPackageName());
+        assertEquals("com.binarapps.android.cookielogger.test", appContext.getPackageName());
     }
 }

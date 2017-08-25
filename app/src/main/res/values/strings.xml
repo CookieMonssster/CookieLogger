@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CookieLogger</string>
+    <string name="operation_one">Operation One</string>
+    <string name="operation_two">Operation Two</string>
+    <string name="operation_three">Operation Three</string>
+    <string name="operation_four">Operation Four</string>
+    <string name="operation_five">Operation Five</string>
+    <string name="operation_six">Operation Six</string>
+    <string name="operation_seven">Operation Seven</string>
+    <string name="operation_eight">Operation Eight</string>
+    <string name="operation_nine">Operation Nine</string>
 </resources>

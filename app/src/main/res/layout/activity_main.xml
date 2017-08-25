@@ -1,18 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.binarapps.android.cookielogger.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.binarapps.android.example.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/operation_one"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_one"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/operation_two"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_two"/>
+
+    <Button
+        android:id="@+id/operation_three"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_three"/>
+
+    <Button
+        android:id="@+id/operation_four"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_four"/>
+
+    <Button
+        android:id="@+id/operation_five"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_five"/>
+
+    <Button
+        android:id="@+id/operation_six"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_six"/>
+
+    <Button
+        android:id="@+id/operation_seven"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_seven"/>
+
+    <Button
+        android:id="@+id/operation_eight"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_eight"/>
+
+    <Button
+        android:id="@+id/operation_nine"
+        style="@style/ButtonStyle"
+        android:text="@string/operation_nine"/>
+
+</LinearLayout>
