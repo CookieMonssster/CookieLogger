@@ -15,15 +15,15 @@ public class CLog {
     public static final String TAG = "CLog";
 
     public static void initialize(Context context, CLogInterface send) {
-        AppContext.initialize(context, send, false, TAG);
+        AppContext.initialize(context, send, false);
     }
 
     public static void initialize(Context context, CLogInterface send, boolean logToLogcat) {
-        AppContext.initialize(context, send, logToLogcat, TAG);
+        AppContext.initialize(context, send, logToLogcat);
     }
 
     public static void initialize(Context context, CLogInterface send, String tag) {
-        AppContext.initialize(context, send, true, tag);
+        AppContext.initialize(context, send, tag);
     }
 
     public static void d(String report) {

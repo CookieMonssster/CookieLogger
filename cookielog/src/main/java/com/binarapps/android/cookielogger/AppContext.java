@@ -42,6 +42,10 @@ public class AppContext {
         instance = new AppContext(context, send, tag);
     }
 
+    protected static void initialize(Context context, CLogInterface send, boolean logToLogcat) {
+        instance = new AppContext(context, send, logToLogcat);
+    }
+
     protected static AppContext getInstance() {
         if(instance == null) {
             throw new NullPointerException("You need to initialize CLog first");
