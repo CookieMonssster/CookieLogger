@@ -35,6 +35,15 @@ public class CLog {
         ReportStorageManager.updateReport(AppContext.getInstance().context, report);
     }
 
+    public static void e(String report) {
+        e(report, AppContext.getInstance().logToLogcat);
+    }
+
+    public static void e(String report, boolean logToLogcat) {
+        if(logToLogcat) Log.e(TAG, report);
+        ReportStorageManager.updateReport(AppContext.getInstance().context, report);
+    }
+
     public static void printSingleReport() {
         ReportStorageManager.printSingleReport(AppContext.getInstance().context);
     }
