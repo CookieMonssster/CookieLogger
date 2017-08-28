@@ -38,8 +38,8 @@ public class AppContext {
         this.logToLogcat = true;
     }
 
-    protected static void initialize(Context context, CLogInterface send, boolean logToLogcat, String tag) {
-        instance = new AppContext(context, send);
+    protected static void initialize(Context context, CLogInterface send, String tag) {
+        instance = new AppContext(context, send, tag);
     }
 
     protected static AppContext getInstance() {

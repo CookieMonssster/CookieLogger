@@ -19,7 +19,7 @@ class ReportStorageManager {
 
     protected static void updateReport(Context context, String reportLine) {
         StringBuilder singleReport = new StringBuilder(getPrefs(context).getString(SINGLE_REPORT, EMPTY_STRING));
-        StringBuilder globalReport = new StringBuilder(getPrefs(context).getString(SINGLE_REPORT, EMPTY_STRING));
+        StringBuilder globalReport = new StringBuilder(getPrefs(context).getString(GLOBAL_REPORT, EMPTY_STRING));
         singleReport.append(NEW_LINE);
         globalReport.append(NEW_LINE);
         singleReport.append(reportLine);
@@ -43,6 +43,18 @@ class ReportStorageManager {
 
     protected static void printGlobalReport(Context context) {
         Log.d(CLog.TAG, getGlobalReport(context));
+    }
+
+    protected static void clearSingleReport(Context context) {
+        clearReport(context, SINGLE_REPORT);
+    }
+
+    protected static void clearGlobalReport(Context context) {
+        clearReport(context, GLOBAL_REPORT);
+    }
+
+    private static void clearReport(Context context, String report) {
+        getPrefs(context).edit().putString(report, EMPTY_STRING).commit();
     }
 
     protected static SharedPreferences getPrefs(Context context) {

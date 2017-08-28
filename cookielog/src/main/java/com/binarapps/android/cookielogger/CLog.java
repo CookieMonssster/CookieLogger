@@ -41,11 +41,13 @@ public class CLog {
 
     public static void sendSingleReport() {
         String report = ReportStorageManager.getSingleReport(AppContext.getInstance().context);
+        ReportStorageManager.clearSingleReport(AppContext.getInstance().context);
         AppContext.getInstance().send.sendSingleReport(report);
     }
 
     public static void sendGlobalReport() {
         String report = ReportStorageManager.getGlobalReport(AppContext.getInstance().context);
+        ReportStorageManager.clearSingleReport(AppContext.getInstance().context);
         AppContext.getInstance().send.sendGlobalReport(report);
     }
 }
