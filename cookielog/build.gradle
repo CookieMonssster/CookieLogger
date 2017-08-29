@@ -1,6 +1,30 @@
 apply plugin: 'com.android.library'
 apply plugin: 'groovyx.android'
 
+ext {
+    bintrayRepo = 'CookieLogger'
+    bintrayName = 'cookie-logger'
+
+    publishedGroupId = 'com.android.cookielogger'
+    libraryName = 'CookieLogger'
+    artifact = 'cookie-logger'
+
+    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
+
+    siteUrl = 'https://github.com/CookieMonssster/CookieLogger'
+    gitUrl = 'https://github.com/CookieMonssster/CookieLogger.git'
+
+    libraryVersion = '1.0.1'
+
+    developerId = 'cookiemonssster'
+    developerName = 'Witold Olejniczak'
+    developerEmail = 'witold.olejniczak@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -28,8 +52,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
+
     testCompile 'org.codehaus.groovy:groovy:2.4.3:grooid'
     testCompile 'org.robospock:robospock:0.8.0'
     testCompile 'org.robolectric:shadows-support-v4:3.0'
     testCompile 'junit:junit:4.12'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
