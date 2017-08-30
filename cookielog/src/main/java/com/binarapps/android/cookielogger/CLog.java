@@ -3,7 +3,11 @@ package com.binarapps.android.cookielogger;
 import android.content.Context;
 import android.util.Log;
 
+import com.binarapps.android.cookielogger.defs.StringKeys;
 import com.binarapps.android.cookielogger.interfaces.CLogInterface;
+
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -30,6 +34,17 @@ public class CLog {
         d(report, AppContext.getInstance().logToLogcat);
     }
 
+    public static void d(Map<String, String> map) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            d(entry.getKey() + StringKeys.VALUE_SEPARATOR + entry.getValue());
+        }
+    }
+    public static void d(List<String> list) {
+        for(String value : list) {
+            d(value);
+        }
+    }
+
     public static void d(String report, boolean logToLogcat) {
         if(logToLogcat) Log.d(TAG, report);
         ReportStorageManager.updateReport(AppContext.getInstance().context, report);
@@ -37,6 +52,17 @@ public class CLog {
 
     public static void e(String report) {
         e(report, AppContext.getInstance().logToLogcat);
+    }
+
+    public static void e(Map<String, String> map) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            e(entry.getKey() + StringKeys.VALUE_SEPARATOR + entry.getValue());
+        }
+    }
+    public static void e(List<String> list) {
+        for(String value : list) {
+            e(value);
+        }
     }
 
     public static void e(String report, boolean logToLogcat) {
