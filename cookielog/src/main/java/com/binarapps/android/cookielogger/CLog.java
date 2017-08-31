@@ -85,4 +85,8 @@ public class CLog {
         ReportStorageManager.clearSingleReport(AppContext.getInstance().context);
         AppContext.getInstance().send.sendGlobalReport(report);
     }
+
+    public static void isLoggingToLogcat(boolean value) {
+        AppContext.getInstance().isLoggingToLogcat(value);
+    }
 }

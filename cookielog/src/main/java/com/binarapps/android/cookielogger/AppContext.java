@@ -53,4 +53,8 @@ public class AppContext {
         return instance;
     }
 
+    protected void isLoggingToLogcat(boolean value) {
+        this.logToLogcat = value;
+    }
+
 }
